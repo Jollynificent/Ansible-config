@@ -1,4 +1,4 @@
 # Ansible-config
 
 testing
-Save artifacts
+save artifacts
