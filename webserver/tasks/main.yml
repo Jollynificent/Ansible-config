@@ -14,13 +14,13 @@
 - name: clone a repo
   become: true
   ansible.builtin.git:
-    repo: https://github.com/Jollynificent/tooling.git
-    dest: /var/www/html
+    repo: https://github.com/Jollynificent/tooling-1.git
+    dest: /jolly
     force: yes
 
 - name: copy html content to one level up
   become: true
-  command: cp -r /var/www/html/html/ /var/www/
+  command: cp -r /jolly/tooling-1/html/ /var/www/
 
 - name: Start service httpd, if not started
   become: true
@@ -31,5 +31,5 @@
 - name: recursively remove /var/www/html/html/ directory
   become: true
   ansible.builtin.file:
-    path: /var/www/html/html
+    path: /jolly/tooling-1/html
     state: absent
